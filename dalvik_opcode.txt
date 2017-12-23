@@ -23,16 +23,6 @@ return-object
 monitor-enter
 monitor-exit
 
---A--
-check-cast
-instance-of
-array-length
-new-instance
-new-array
-filled-new-array
-filled-new-array-range
-fill-array-data
-
 --G--
 goto
 goto/16
