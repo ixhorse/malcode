@@ -2,7 +2,7 @@
 
 import pickle, pprint
 
-opcode_file = 'E:\\malcode\\project\\dalvik_opcode.txt'
+opcode_file = 'E:\\malcode\\project\\dalvik_opcode_7.txt'
 dict_file = 'E:\\malcode\\project\\opcode_dict'
 
 f = open(opcode_file, 'r')
@@ -37,3 +37,4 @@ f.close()
 f = open(dict_file, 'rb')
 dict = pickle.load(f)
 pprint.pprint(dict)
+f.close()

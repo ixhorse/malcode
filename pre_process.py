@@ -3,13 +3,14 @@
 import os
 import glob
 import multiprocessing
+import threading
 from math import ceil
 import  pickle
 
 core = 4
 
-apk_path = 'E:\\malcode\\apk'
-out_path = 'E:\\malcode\\opcode'
+apk_path = 'E:\\malcode\\train_mal'
+out_path = 'E:\\malcode\\opcode_mal'
 op_dict_path = 'E:\\malcode\\project\\opcode_dict'
 
 dict_file = open(op_dict_path, 'rb')
@@ -26,7 +27,7 @@ def worker(apk_split):
             for file in files:
                 if(file[-5:] != 'smali'):
                     continue
-                f = open(os.path.join(root, file), 'r')
+                f = open(os.path.join(root, file), 'r', encoding='utf-8')
                 lines = f.readlines()
                 f.close()
                 for line in lines:
@@ -54,6 +55,7 @@ if __name__ == '__main__':
         if(start >= end):
             break
         process = multiprocessing.Process(target=worker, args=(apk_list[start:end], ))
+        # process = threading.Thread(target=worker, args=(apk_list[start:end], ))
         process.start()
         record.append(process)
 
